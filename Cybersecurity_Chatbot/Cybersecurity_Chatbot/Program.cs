@@ -7,6 +7,8 @@ namespace Cybersecurity_Chatbot
     {
         static void Main(string[] args)
         {
+            Logo.AnimatedLogo();                                                                                        //Display the logo of the chatbot 
+            UI.GetUserData();                                                                                           //Get user data (name, etc.) for a personalized experience    
             UI.WelcomeMessage();                                                                                        //Start the chatbot by displaying a welcome message
 
             while (true)

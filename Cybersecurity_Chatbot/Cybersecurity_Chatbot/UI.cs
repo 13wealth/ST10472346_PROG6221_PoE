@@ -3,12 +3,39 @@ using System.Media;
 
 namespace Cybersecurity_Chatbot
 {
+    /**
+     * UI class handles all user interactions, including displaying messages, menus, and prompts. 
+     * It also manages the welcome sound and validates user input for continuing the conversation.
+     */
     internal class UI
     {
-        /**
-         * This class contains methods for displaying messages and menus to the user
-         * It also handles user prompts for continuing or exiting the chatbot.
-         */
+        public static string GetUserData()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("****************************************************************");
+            Console.WriteLine("                   W   E   L   C   O   M   E                    ");
+            Console.WriteLine("****************************************************************");
+            Console.WriteLine();
+            Console.ResetColor();
+
+            TypeText("Bot: Hello human... I need a name to continue our mission.");
+            TypeText("Bot: What should I call you? ");
+            string name = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                name = "User";
+            }
+
+            Console.WriteLine();
+            Console.WriteLine($"Bot: Nice to meet you, {name}!");
+            Console.WriteLine();
+
+            return name;
+        }
+
         public static void WelcomeMessage()
         {
             try 
@@ -20,10 +47,6 @@ namespace Cybersecurity_Chatbot
             {
                 Console.WriteLine("Bot: Unable to play welcome sound. " + e.Message);
             }
-
-            Console.WriteLine("Bot: Hello! Welome to Cybersecurity Awareness Bot.");
-            Console.WriteLine("Bot: I am here to help you stay safe online.");
-            Console.WriteLine();
         }
 
         public static void TopicMenu()
@@ -75,6 +98,19 @@ namespace Cybersecurity_Chatbot
                 }
 
                 Console.WriteLine("Bot: Please answer with 'Y' or 'N'.");                                               //Prompt user again if they enter an invalid response
+            }
+        }
+
+        /*
+         * Reusable method to display text with a typing effect.
+         * Making the chatbot's responses feel more dynamic and engaging.
+         */
+        public static void TypeText(string text, int delay = 40)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                System.Threading.Thread.Sleep(delay);
             }
         }
     }

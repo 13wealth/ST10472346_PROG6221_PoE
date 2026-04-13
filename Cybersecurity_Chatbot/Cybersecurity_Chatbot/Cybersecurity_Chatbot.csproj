@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BotOperations.cs" />
     <Compile Include="InputValidation.cs" />
+    <Compile Include="Logo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI.cs" />
