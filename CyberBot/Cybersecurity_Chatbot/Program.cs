@@ -7,35 +7,34 @@ namespace Cybersecurity_Chatbot
     {
         static void Main(string[] args)
         {
-            Logo.AnimatedLogo();                                                                                        //Display the logo of the chatbot 
-            UI.GetUserData();                                                                                           //Get user data (name, etc.) for a personalized experience    
-            UI.WelcomeMessage();                                                                                        //Start the chatbot by displaying a welcome message
-
+            Logo.AnimatedLogo();                                                                                //Display the logo of the chatbot 
+            UI.GetUserData();                                                                                   //Get user data (name, etc.) for a personalized experience    
+            UI.WelcomeMessage();                                                                                //Start the chatbot by displaying a welcome message
+                                                                                  
             while (true)
             {
-                UI.TopicMenu();
-                Console.Write("You: ");                                                                                 // Prompt the user for input
-                string userInput = Console.ReadLine();
+                UI.Menu();
+                Console.Write("You: ");                                                                         //Prompt the user for input
+                string input = Console.ReadLine();
 
-                string topic = InputValidation.InputHandler(userInput);                                                 // Validate and process the user input to determine the topic
+                string choice = InputValidation.InputHandler(input);                                             //Validate and process the user input to determine the topic
 
-                if (topic == "exit")
+                if (choice == "exit")
                 {
                     UI.ExitMessage();
                     break;
                 }
 
-                bool wasHandled = ResponseSystem.TryHandleTopic(topic);                                                 // Handles a topic and provides a response
+                bool valid = ResponseSystem.HandleTopic(choice);                                                //Handles the validated input by providing an appropriate response.
 
-                if (!wasHandled)
+                if (!valid)                                                                                      //If the input was not a general conversational input, try to handle it as a topic
+                {
+                    valid = ResponseSystem.HandleGeneral(choice);                                                                         //Then return an invalid option message
+                }
+                
+                if (!valid)                                                                                     //If input was not treated as a topic or general conversation, show invalid option message
                 {
                     UI.InvalidOption();
-                }
-
-                if (!UI.AskToContinue())
-                {
-                    UI.GoodbyeMessage();
-                    break;
                 }
             }
         }
