@@ -53,8 +53,11 @@ GitHub Actions workflow runs on pushes and pull requests to `main` and performs:
 
 Workflow file: `.github/workflows/ci.yml`
 
+## CI Pipeline Status
+![CI Pipeline](assets/ci-results.jpg)
 
 ## References
 
 - OpenAI. (2026). ChatGPT (GPT-5.3-mini) assistance for C# chatbot development, ASCII art animation, and Git workflow guidance. https://chat.openai.com/
 - Patorjk.com. (n.d.). Text to ASCII Art Generator (TAAG). https://patorjk.com/software/taag/
+
