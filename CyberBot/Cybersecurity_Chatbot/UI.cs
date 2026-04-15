@@ -22,7 +22,7 @@ namespace Cybersecurity_Chatbot
             Console.WriteLine();
             Console.ResetColor();
 
-            TypeText("Bot: Hello human... I need your name to continue our mission.\n");
+            TypeText("Bot: Hello human... I am a Cybersecurity Awareness Bot, here to help you stay safe online.\n");
             TypeText("Bot: What should I call you? \nYou: ");
             string name = Console.ReadLine();
 
@@ -33,6 +33,7 @@ namespace Cybersecurity_Chatbot
 
             Console.WriteLine();
             TypeText($"Bot: Nice to meet you, {name}! \n");
+            TypeText("Bot: Please type a topic name, number (1-4), or 'exit'\n");
             Console.WriteLine();
 
             return name;
@@ -42,18 +43,18 @@ namespace Cybersecurity_Chatbot
         {
             try 
             {
-                welcomePlayer = new SoundPlayer("welcome.wav");                                               //-Attempts to play a welcome sound when the chatbot starts
+                welcomePlayer = new SoundPlayer("welcome.wav");                                                 //-Attempts to play a welcome sound when the chatbot starts
                 welcomePlayer.Play();                                                                           //-Plays the welcome sound asynchronously in the background
             }
-            catch (Exception)                                                                                   //-If sound cannot be played, continue silently
+            catch (Exception a)                                                                                 
             {
-                //-Intentionally continue without interrupting the onboarding flow
+                Console.WriteLine("Bot: Unable to play welcome sound," + a.Message);                            //-If the sound file is missing or cannot be played, it will catch the exception and display an error message
             }
         }
 
         public static void Menu()
         {
-            string border = new string('*', 60);                                                                //-Creates a string of 60 asterisks to use as a border for the menu display
+            string border = new string('*', 64);                                                                //-Creates a string of 64 asterisks to use as a border for the menu display
             
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(border);

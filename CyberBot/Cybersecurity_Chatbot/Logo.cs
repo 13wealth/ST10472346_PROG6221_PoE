@@ -11,6 +11,7 @@ namespace Cybersecurity_Chatbot
     {
         public static void AnimatedLogo()
         {
+            Console.WriteLine();                                                                                //-Add a blank line before the logo for better spacing
     string[] logo =
     {
         "███╗   ██╗███████╗████████╗     ███████╗ █████╗ ███████╗███████╗",

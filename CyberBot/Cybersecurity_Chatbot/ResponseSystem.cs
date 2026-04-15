@@ -19,7 +19,7 @@ namespace Cybersecurity_Chatbot
                 case "how's it going?":
                     Console.WriteLine();
                     UI.TypeText("Bot: I am running optimally and ready to protect you from cyber threats.\n");
-                    UI.TypeText("Bot: More importantly — how are YOU doing today?\n");
+                    UI.TypeText("Bot: Please type a topic name, number (1-4), or 'exit'\n");
                     return true;
 
                 case "what is your purpose":
