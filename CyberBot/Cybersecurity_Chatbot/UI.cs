@@ -94,9 +94,9 @@ namespace Cybersecurity_Chatbot
          */
         public static void TypeText(string text, int delay = 40)
         {
-            foreach (char a in text)
+            foreach (char a in text)                                                                            //-Iterates through each character in the input text
             {
-                Console.Write(a); 
+                Console.Write(a);                                                                               //-Writes the current character to the console without a newline
                 System.Threading.Thread.Sleep(delay);                                                           //-Delay between each character to create typing effect
             }
         }

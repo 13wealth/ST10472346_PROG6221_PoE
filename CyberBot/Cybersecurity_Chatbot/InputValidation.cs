@@ -12,17 +12,17 @@ namespace Cybersecurity_Chatbot
          */
         public static string InputHandler(string input)
         {
-            if (string.IsNullOrWhiteSpace(input))                                                                       //-If user types nothing, return empty string instead of crashing
+            if (string.IsNullOrWhiteSpace(input))                                                               //-If user types nothing, return empty string instead of crashing
             {
                 return string.Empty;
             }
 
-            string menu = input.Trim().ToLowerInvariant();                                                              //-Trim whitespace and convert to lowercase for consistent processing
+            string menu = input.Trim().ToLowerInvariant();                                                      //-Trim whitespace and convert to lowercase for consistent processing
 
             switch (menu)
             {
                 case "1":
-                    return "phishing";                                                                                  //-Program expects "phishing" so when user types "1", convert it to "phishing"
+                    return "phishing";                                                                          //-Program expects "phishing" so when user types "1", convert it to "phishing"
                 case "2":
                     return "passwords";                                                                                 
                 case "3":

@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Cybersecurity_Chatbot
 {
     internal class Program
@@ -14,7 +13,7 @@ namespace Cybersecurity_Chatbot
             while (true)
             {
                 UI.Menu();
-                Console.Write($"{StateSharing.Name}: ");                                                                         //-Prompt the user for input
+                Console.Write($"{StateSharing.Name}: ");                                                        //-Prompt the user for input
                 string input = Console.ReadLine();
 
                 string choice = InputValidation.InputHandler(input);                                            //-Validate and process the user input to determine the topic

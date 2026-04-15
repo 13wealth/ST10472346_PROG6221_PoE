@@ -11,35 +11,33 @@ namespace Cybersecurity_Chatbot
     {
         public static void AnimatedLogo()
         {
-            Console.WriteLine();                                                                                //-Add a blank line before the logo for better spacing
-    string[] logo =
+    string[] logo =                                                                                             //-Store the logo as an array of strings, One string = one line of the logo
     {
+        " ",
         "███╗   ██╗███████╗████████╗     ███████╗ █████╗ ███████╗███████╗",
         "████╗  ██║██╔════╝╚══██╔══╝     ██╔════╝██╔══██╗██╔════╝██╔════╝",
         "██╔██╗ ██║█████╗     ██║        ███████╗███████║█████╗  █████╗  ",
         "██║╚██╗██║██╔══╝     ██║        ╚════██║██╔══██║██╔══╝  ██╔══╝  ",
         "██║ ╚████║███████╗   ██║        ███████║██║  ██║██║     ███████╗",
         "╚═╝  ╚═══╝╚══════╝   ╚═╝        ╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝",
-        "",
+        " ",
         "           Cybersecurity Awareness Assistant - NET SAFE"
      };
 
-            foreach (string line in logo)
+            foreach (string line in logo)                                                                       //-Goes through the logo, line by line, animations happen per line
             {
-                string output = "";
+                string output = "";                                                                             //-Starts a line with an empty string
 
                 foreach (char c in line)
                 {
-                    output += c;
+                    output += c;                                                                                //-Adds the next character to the output string
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write("\r" + output);
-                    Thread.Sleep(1);
+                    Console.Write("\r" + output);                                                               //-Once finish writting, go back to the start of the line (Typing animation)
+                    Thread.Sleep(1);                                                                            //-Waits for 50 milliseconds before adding the next character, creating an animation effect
                 }
-
-                Console.WriteLine();
+                Console.WriteLine();                                                                            //-After finishing one line, move to the next line
             }
-
-            Console.ResetColor();
+            Console.ResetColor(); 
         }
     }
 }
